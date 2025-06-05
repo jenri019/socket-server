@@ -14,6 +14,9 @@ class Server {
         this.httpServer = new http_1.default.Server(this.app);
         this.io = new socket_io_1.Server(this.httpServer); // <-- así se instancia
     }
+    static get instance() {
+        return this._instance || (this._instance = new this());
+    }
     listenSockets() {
         console.log('Listening for socket connections');
         this.io.on('connection', (client) => {
