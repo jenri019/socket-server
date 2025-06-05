@@ -1,3 +1,7 @@
-const nombre = 'Jose Enrique';
+import Server from "./classes/server";
 
-console.log(`Hola, mi nombre es ${nombre}`);
+const server = new Server();
+
+server.start(() => {
+    console.log(`Server running on port ${server.port}`);
+});
