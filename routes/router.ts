@@ -10,23 +10,23 @@ router.get('/mensajes', (req: Request, res: Response) => {
 });
 
 router.post('/mensajes', (req: Request, res: Response) => {
-    const { cuerpo, de } = req.body;
+    const { body, from } = req.body;
     res.json({
         ok: true,
         message: 'POST Listo',
-        cuerpo,
-        de,
+        body,
+        from,
     });
 });
 
 router.post('/mensajes/:id', (req: Request, res: Response) => {
-    const { cuerpo, de } = req.body;
+    const { body, from } = req.body;
     const { id } = req.params;
     res.json({
         ok: true,
         message: 'POST Listo',
-        cuerpo,
-        de,
+        body,
+        from,
         para: id,
     });
 });
