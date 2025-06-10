@@ -30,6 +30,7 @@ export default class Server {
 
             //Config user
             socket.message(client, this.io);
+            socket.privateMessage(client, this.io);
             socket.configUser(client, this.io);
             socket.getUsers(client, this.io);
             socket.disconnect(client, this.io);

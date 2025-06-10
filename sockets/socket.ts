@@ -26,6 +26,12 @@ export const message = (client: Socket, io: socketIO) => {
     });
 }
 
+export const privateMessage = (client: Socket, io: socketIO) => {
+    client.on('private-message', (payload: { from: string, body: string, to: string }) => {
+        io.to(payload.to).emit('new-private-message', payload);
+    });
+}
+
 export const configUser = (client: Socket, io: socketIO) => {
     client.on('config-user', (payload: { username: string }, callback: Function) => {
         connectedUsers.updateNname(client.id, payload.username);
